@@ -41,6 +41,7 @@ gem 'foundation-rails'
 gem 'autoprefixer-rails'
 gem 'mailjet'
 gem 'dotenv'
+gem 'jquery-rails'
 
 
 group :development, :test do
