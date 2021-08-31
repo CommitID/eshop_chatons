@@ -1,25 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class='grid-container margin-top spacer'>
+  <div class='grid-x grid-margin-x'>
+    <div class='cell medium-4'>
+      <img src="https://live.staticflickr.com/469/19471741213_eece5bb9bd_b.jpg">
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
+    <div class='cell auto'>
+    <p class='h1'><%= @item.title %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-  <%= button_to "Ajouter au panier", cart_items_path(item_id: @item.id), :method => :post, :class => "button" %>
-</p>
-
-<p>
-  <strong>Image url:</strong>
-  <%= @item.image_url %>
-</p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+    <p><%= @item.price %>&nbsp;€</p>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= @item.description %>
+    </p>
+    
+    <p>
+      <%= button_to "Ajouter au panier", cart_items_path(item_id: @item.id), :method => :post, :class => "button" %>
+    </p>
+    
+    </div>
+  </div>
+</div>
