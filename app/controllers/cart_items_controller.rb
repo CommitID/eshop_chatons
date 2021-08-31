@@ -3,16 +3,16 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.new(cart_id: @cart.id, item_id: params[:item_id])
     if @cart_item.save
       flash[:notice] = 'Produit ajouté au panier'
-      redirect_to item_path(params[:item_id])
     else
-      flash[:error] = "Impossible d'ajouter le produit au panier"
-      redirect_to items_path
+      flash[:alert] = "Impossible d'ajouter le produit au panier"
     end
+    redirect_back fallback_location: root_path
   end
 
   def destroy
     @cart_item = CartItem.find(params[:id])
     @cart_item.destroy
-    redirect_to cart_path(@cart.id)
+    flash[:alert] = 'Produit supprimé au panier'
+    redirect_back fallback_location: root_path
   end
 end

@@ -2,14 +2,12 @@
 <%= render 'items/brief' %>
 <% end %>
 
-<p id="notice"><%= notice %></p>
-
 <div class="grid-container">
   <h1>Items</h1>
   <div class="grid-x grid-margin-x small-up-2 medium-up-3">
     <% @items.each do |item| %>
       <div class="cell">
-        <div class="card" style="max-width: 400px;">
+        <div class="card">
           <%= link_to item  do %>
           <img src="https://live.staticflickr.com/469/19471741213_eece5bb9bd_b.jpg">
         <% end %>
