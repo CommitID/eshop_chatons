@@ -13,6 +13,7 @@
 <p>
   <strong>Price:</strong>
   <%= @item.price %>
+  <%= button_to "Ajouter au panier", cart_items_path(item_id: @item.id), :method => :post, :class => "button" %>
 </p>
 
 <p>

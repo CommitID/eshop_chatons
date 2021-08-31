@@ -1,4 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<div class="grid-container">
+  <h1>Panier</h1>
+  <p id="notice"><%= notice %></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th>Prix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <% @cart.cart_items.each do |ci| %>
+        <td><%= ci.item.title %></td>
+        <td><%= ci.item.price %>&nbsp;€</td>
+      </tr>
+      <% end %>
+      <tr>
+        <td>Total</td>
+        <td><%= @cart.total %>&nbsp;€</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

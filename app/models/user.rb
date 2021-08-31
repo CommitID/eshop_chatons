@@ -7,6 +7,11 @@ class User < ApplicationRecord
   has_one :cart
 
   after_create :welcome_send
+  after_create :create_user_cart
+
+  def create_user_cart
+    Cart.create(user_id: id)
+  end
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
