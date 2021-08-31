@@ -3,11 +3,21 @@ class Cart < ApplicationRecord
   has_many :items, through: :cart_items
   belongs_to :user
 
-  def total
-    sum = 0
-    cart_items.each do |i|
-      sum += i.item.price
+  def total_items
+    items = 0
+    cart_items.each do |_i|
+      items += 1
     end
-    sum
+    return '' if items == 0
+
+    items
+  end
+
+  def total_price
+    price = 0
+    cart_items.each do |i|
+      price += i.item.price
+    end
+    price
   end
 end
