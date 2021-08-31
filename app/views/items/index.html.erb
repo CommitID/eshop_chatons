@@ -9,16 +9,17 @@
   <div class="grid-x grid-margin-x small-up-2 medium-up-3">
     <% @items.each do |item| %>
       <div class="cell">
-        <%= link_to item  do %>
         <div class="card" style="max-width: 400px;">
+          <%= link_to item  do %>
           <img src="https://live.staticflickr.com/469/19471741213_eece5bb9bd_b.jpg">
+        <% end %>
           <div class="card-section">
           <h4><%= item.title %></h4>
             <p><%= item.description %></p>
             <p><%= item.price %>&nbsp;€</p>
+            <%= button_to "Ajouter au panier", cart_items_path(item_id: item.id), :method => :post, :class => "button" %>
           </div>
         </div>
-      <% end %>
       </div>
   <% end %>
   </div>

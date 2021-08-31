@@ -12,7 +12,10 @@
       <tr>
       <% @cart.cart_items.each do |ci| %>
         <td><%= ci.item.title %></td>
-        <td><%= ci.item.price %>&nbsp;€</td>
+        <td>
+          <%= ci.item.price %>&nbsp;€
+          <small><%= link_to 'Supprimer', cart_item_path(ci), :method => :delete %></small>
+        </td>
       </tr>
       <% end %>
       <tr>
