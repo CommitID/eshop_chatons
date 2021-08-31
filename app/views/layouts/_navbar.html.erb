@@ -1,15 +1,19 @@
 <div class='top-bar'>
+
   <div class='top-bar-left'>
     <ul class='dropdown menu' data-dropdown-menu>
       <li class='menu-text'>PssPssPss</li>
+      <% if !user_signed_in? %>
+      <li><%= link_to 'Connexion', new_user_session_path %></li>
+      <% else %>
       <li>
         <a href='#'>Compte</a>
-        <ul class='menu vertical'>
-          <li><%= link_to 'Connexion', new_user_session_path %></li>
-          <li><%= link_to 'Déconnexion', destroy_user_session_path, :method => :delete %></li>
-          <li><%= link_to 'Crée un compte', new_user_registration_path %></li>
-        </ul>
+          <ul class='menu vertical'>
+            <li><%= link_to 'Déconnexion', destroy_user_session_path, :method => :delete %></li>
+            <li><%= link_to 'Crée un compte', new_user_registration_path %></li>
+          </ul>
       </li>
+    <% end %>
     </ul>
   </div>
   <div class='top-bar-right'>

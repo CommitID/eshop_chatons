@@ -1,7 +1,11 @@
+<% if !user_signed_in? %>
+<%= render 'items/brief' %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Items</h1>
 <div class="grid-container">
+  <h1>Items</h1>
   <div class="grid-x grid-margin-x small-up-2 medium-up-3">
     <% @items.each do |item| %>
       <div class="cell">
