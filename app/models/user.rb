@@ -7,4 +7,10 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   has_one :cart
+
+  after_create :welcome_send
+
+  def welcome_send
+    UserMailer.welcome_email(self).deliver_now
+  end
 end

@@ -39,7 +39,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
-gem 'mailjet'
 gem 'dotenv'
 gem 'jquery-rails'
 
