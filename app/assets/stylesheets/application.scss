@@ -29,3 +29,8 @@
 h1 {
   margin: 2rem 0;
 }
+
+.mandatory:after {
+  content: ' *';
+  color: red;
+}
