@@ -42,6 +42,7 @@ gem 'dotenv'
 gem 'font-awesome-rails'
 gem 'foundation-rails'
 gem 'jquery-rails'
+gem 'stripe'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
