@@ -1,0 +1,14 @@
+<% if item.errors.any? %>
+<div class='callout alert large' data-closable>
+  <span class='h4'><%= pluralize(item.errors.count, "erreur") %> ont empêché la requête d’aboutir&nbsp;:</span>
+      <ul>
+      <% item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+
