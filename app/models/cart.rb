@@ -22,4 +22,8 @@ class Cart < ApplicationRecord
   def itemless?
     total_items == 0
   end
+
+  def trasher
+    cart_items.destroy_all
+  end
 end
