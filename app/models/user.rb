@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :cart
+  has_many :order
 
   after_create :welcome_send
   after_create :create_user_cart
