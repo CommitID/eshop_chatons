@@ -5,12 +5,16 @@
 <div class="grid-container">
   <h1>Items</h1>
   <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-    <% @items.each do |item| %>
+    <% @items.order('created_at').reverse.each do |item| %>
       <div class="cell">
         <div class="card">
           <%= link_to item  do %>
-          <img src="https://live.staticflickr.com/469/19471741213_eece5bb9bd_b.jpg">
-        <% end %>
+            <% if item.picture.attached? %>
+            <%= image_tag item.picture %>
+            <% else %>
+            <img src="https://live.staticflickr.com/469/19471741213_eece5bb9bd_b.jpg">
+            <% end %>
+          <% end %>
           <div class="card-section">
           <h4><%= item.title %></h4>
             <p><%= item.description %></p>
