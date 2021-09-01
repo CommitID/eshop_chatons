@@ -20,4 +20,8 @@ class Cart < ApplicationRecord
     end
     price
   end
+
+  def itemless?
+    cart_items.any?
+  end
 end
