@@ -21,7 +21,7 @@
     <ul class='menu'>
       <% if user_signed_in? %>
       <%= link_to cart_path(@cart.id) do %>
-        <li><%= fa_icon "shopping-cart", text: @cart.total_items %></li>
+        <li><%= fa_icon 'shopping-cart', text: "#{@cart.total_items unless @cart.itemless?}" %></li>
       <% end %>
       <% end %>
       <li><input type='search' placeholder='Animal, mraou...'></li>

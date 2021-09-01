@@ -8,8 +8,6 @@ class Cart < ApplicationRecord
     cart_items.each do |_i|
       items += 1
     end
-    return '' if items == 0
-
     items
   end
 
@@ -22,6 +20,6 @@ class Cart < ApplicationRecord
   end
 
   def itemless?
-    cart_items.any?
+    total_items == 0
   end
 end

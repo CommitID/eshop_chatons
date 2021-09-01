@@ -1,6 +1,6 @@
 <div class="grid-container">
   <h1>Panier</h1>
-  <% if @cart.itemless? %>
+  <% unless @cart.itemless? %>
   <table>
     <thead>
       <tr>
