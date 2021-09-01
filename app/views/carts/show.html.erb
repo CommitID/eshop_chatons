@@ -11,7 +11,11 @@
     <tbody>
       <tr>
       <% @cart.cart_items.each do |ci| %>
-        <td><%= ci.item.title %></td>
+        <td>
+          <%= link_to ci.item do %>
+          <%= ci.item.title %>
+          <% end %>
+        </td>
         <td>
           <%= ci.item.price %>&nbsp;€
           <small><%= link_to 'Supprimer', cart_item_path(ci), :method => :delete %></small>
