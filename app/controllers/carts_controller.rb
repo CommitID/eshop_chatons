@@ -6,6 +6,8 @@ class CartsController < ApplicationController
   end
 
   def destroy
-    @cart = @cart
+    @cart.cart_items.delete_all
+    flash[:notice] = 'Panier vidé.'
+    redirect_to cart_path
   end
 end
