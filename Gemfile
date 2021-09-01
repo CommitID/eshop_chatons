@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'autoprefixer-rails'
 gem 'aws-sdk-s3', '~> 1'
 gem 'devise'
+gem 'devise-i18n'
 gem 'font-awesome-rails'
 gem 'foundation-rails'
 gem 'jquery-rails'

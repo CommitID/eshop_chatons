@@ -10,30 +10,30 @@
   </div>
 
   <div class="field">
-    <%= f.label 'prénom' %>
+    <%= f.label :first_name %>
     <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
   </div>
 
   <div class="field">
-    <%= f.label 'nom' %>
+    <%= f.label :last_name %>
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
   </div>
 
   <div class="field">
-    <%= f.label 'mot-de-passe', :class => 'mandatory' %>
+    <%= f.label :password, :class => 'mandatory' %>
     <% if @minimum_password_length %>
-    <i>(<%= @minimum_password_length %> characters minimum)</i>
+      <label><i>(<%= "#{@minimum_password_length} caractères au moins" %>)</i></label>
     <% end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label 'confirmez le mot-de-passe', :class => 'mandatory' %>
+    <%= f.label :password_confirmation, :class => 'mandatory' %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Créer votre compte", :class => 'button' %>
+    <%= f.submit "Inscription", :class => 'button' %>
   </div>
 <% end %>
 
