@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @user.first_name unless @user.first_name.empty? %>, merci pour ta commande !</h1>
+    <p>Tu as commandé des photos de chat sur psspsspss, et nous te remercions pour ta confiance.</p>
+    <p>Voici les détails de ta commande&nbsp;:</p>
+    <ul>
+      <% @order.order_items.each do |oi| %>
+        <li><%= oi.item.title %> (<%= oi.item.price %>&nbsp;€)</li>
+      <% end %>
+    </ul>
+    <p><b>Total (<%= @order.items.count %> photos)&nbsp: </b><%= @order.total_price %>&nbsp;€</p>
+    <p>Pour accéder à ton espace client, connecte-toi via : <%= @url %>.</p>
+    <p> À très vite sur <%= @url %> !</p>
+  </body>
+</html>
