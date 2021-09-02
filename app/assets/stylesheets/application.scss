@@ -34,3 +34,11 @@ h1 {
   content: ' *';
   color: red;
 }
+
+.top-bar a {
+  color: $black;
+}
+
+.top-bar a:hover {
+  color: map-get($foundation-palette, primary);
+}
