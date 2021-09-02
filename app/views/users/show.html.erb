@@ -1,4 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h1>Informations du compte</h1>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', root_path %>
+<dl>
+  <dt>Email</dt>
+  <dd><%= @user.email %></dd>
+  <% unless @user.first_name.empty? %>
+  <dt>Prénom</dt>
+  <dd><%= @user.first_name %></dd>
+  <% end %>
+  <% unless @user.last_name.empty? %>
+  <dt>Nom</dt>
+  <% end %>
+  <dd><%= @user.last_name %></dd>
+  <dt>Nombre de commandes</dt>
+  <dd><%= @user.order.count %></dd>
+</dl>
+
+<div class='button-group'>
+  <%= link_to 'Modifier le profil', edit_user_path(current_user), :class => 'button' %>
+  <%= link_to 'Modifier le mot de passe', new_user_password_path(current_user), :class => 'button' %>
+  <%= link_to 'Historique des commandes', orders_path, :class => 'button' %>
+</div>
