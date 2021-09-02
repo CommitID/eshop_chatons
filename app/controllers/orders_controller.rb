@@ -19,11 +19,11 @@ class OrdersController < ApplicationController
     end
 
     if @order.save
-      flash[:notice] = 'Bravo'
+      flash[:notice] = 'Commande validée, veuillez consulter votre boîte mail.'
       @cart.trasher
       redirect_to order_path(@order)
     else
-      flash[:alert] = 'Pas bravo'
+      flash[:alert] = 'La commande a échoué.'
       redirect_to @cart
     end
   end
