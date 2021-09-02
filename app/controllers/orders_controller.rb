@@ -27,7 +27,8 @@ class OrdersController < ApplicationController
   end
 
   def success
-    @order = Order.new(user: current_user)
+    @order = Order.new(order_params)
+    @order.user = @cart.user
     @order_items = @cart.items.each do |it|
       OrderItem.create(item_id: it.id, order: @order)
     end
@@ -46,5 +47,11 @@ class OrdersController < ApplicationController
   def cancel
     @session = Stripe::Checkout::Session.retrieve(params[:session_id])
     @payment_intent = Stripe::PaymentIntent.retrieve(@session.payment_intent)
+  end
+
+  private
+
+  def order_params
+    params.permit(:user)
   end
 end

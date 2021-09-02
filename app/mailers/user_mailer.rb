@@ -13,9 +13,9 @@ class UserMailer < ApplicationMailer
     @user = user
     @order = order
 
-    for @order.order_items.each do |oi|
-      oi.picture
-    end
+    # for @order.order_items.each do |oi|
+    #  oi.picture
+    # end
 
     @url = 'http://psspsspss.herokuapp.com'
 
