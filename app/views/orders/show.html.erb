@@ -1,4 +1,28 @@
-<p id="notice"><%= notice %></p>
+<h1>Commande #<%= @order.id %></h1>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+  <table>
+    <thead>
+      <tr>
+        <th>Produit</th>
+        <th>Prix</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <% @order.order_items.each do |oi| %>
+        <td>
+          <%= link_to oi.item do %>
+          <%= oi.item.title %>
+          <% end %>
+        </td>
+        <td>
+          <%= oi.item.price %>&nbsp;€
+        </td>
+      </tr>
+      <% end %>
+      <tr>
+        <td>Total</td>
+        <td><%= @order.total_price %>&nbsp;€</td>
+      </tr>
+    </tbody>
+  </table>
