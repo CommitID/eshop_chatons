@@ -42,7 +42,7 @@ class OrdersController < ApplicationController
       flash[:notice] = 'Commande validée, veuillez consulter votre boîte mail.'
       @cart.trasher
       UserMailer.order_email(current_user, @order).deliver_now
-      UserMailer.order_admins_email(current_user, @order).deliver_now
+      AdminMailer.order_admins_email(current_user, @order).deliver_now
       redirect_to order_path(@order)
     else
       flash[:alert] = 'La commande a échoué.'
