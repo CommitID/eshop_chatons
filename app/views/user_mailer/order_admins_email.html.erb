@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Nouvelle commande de <%= @user.first_name unless @user.first_name.empty? %></h1>
+    <p>Voici les détails de la commande&nbsp;:</p>
+    <ul>
+      <% @order.order_items.each do |oi| %>
+        <li><%= oi.item.title %> (<%= oi.item.price %>&nbsp;€)</li>
+      <% end %>
+    </ul>
+    <p><b>Total (<%= @order.items.count %> photos)&nbsp: </b><%= @order.total_price %>&nbsp;€</p>
+    <p>Pour accéder au commandes, connecte-toi via : <%= @url %>.</p>
+  </body>
+</html>

@@ -1,16 +1,11 @@
-Salut <%= @user.first_name unless @user.first_name.empty? %>, merci pour ta commande !
+Nouvelle commande de <%= @user.first_name unless @user.first_name.empty? %>
 
-Tu as commandé des photos de chat sur psspsspss, et nous te remercions pour ta
-confiance.
-
-Voici les détails de ta commande :
+Voici les détails de la commande :
 
 <% @order.order_items.each do |oi| %>
 - <%= oi.item.title %> (<%= oi.item.price %> €)
 <% end %>
 Total (<%= @order.items.count %> photos): <%= @order.total_price %> €
 
-Pour accéder à ton espace client, connecte-toi via :
+Pour accéder au commandes, connecte-toi via :
 <%= @url %>
-
-À très vite sur psspsspss !

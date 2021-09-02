@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     session[:cart_id] = @cart.id
   end
 
+  def authenticate!
+    :authenticate_admin! if [current_admin, current_user].all? { |e| e.nil? }
+  end
+
   protected
 
   def configure_permitted_parameters

@@ -21,6 +21,9 @@
   </div>
   <div class='top-bar-right'>
     <ul class='menu'>
+      <% if admin_signed_in? %>
+      <%= link_to 'Deconnexion admin', destroy_admin_session_path, method: :delete %>
+      <% end %>
       <% if user_signed_in? %>
       <%= link_to cart_path(@cart.id) do %>
         <li><%= fa_icon 'shopping-cart', text: "#{@cart.items.count unless @cart.itemless?}" %></li>

@@ -1,7 +1,12 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[admin_index]
+  before_action :authenticate_admin!, only: %i[admin_index]
 
   def index
+    @orders = Order.all
+  end
+
+  def admin_index
     @orders = Order.all
   end
 
@@ -37,6 +42,7 @@ class OrdersController < ApplicationController
       flash[:notice] = 'Commande validée, veuillez consulter votre boîte mail.'
       @cart.trasher
       UserMailer.order_email(current_user, @order).deliver_now
+      UserMailer.order_admins_email(current_user, @order).deliver_now
       redirect_to order_path(@order)
     else
       flash[:alert] = 'La commande a échoué.'
@@ -50,6 +56,11 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def user_rights
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user) || current_user.admin?
+  end
 
   def order_params
     params.permit(:user)

@@ -1,5 +1,4 @@
 <h1>Commandes</h1>
-<% unless @current_user.orderless? %>
 <table>
   <thead>
     <tr>
@@ -8,7 +7,7 @@
   </thead>
 
   <tbody>
-    <% @current_user.ordered.each do |order| %>
+    <% @orders.each do |order| %>
       <tr>
         <td>Commande #<%= order.id %></td>
         <td>
@@ -25,8 +24,3 @@
     <% end %>
   </tbody>
 </table>
-<% else %>
-  <div class='callout large primary'>
-    Aucune commande sur ce compte
-  </div>
-<% end %>
