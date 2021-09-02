@@ -1,0 +1,15 @@
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+local:
+  service: Disk
+  root: <%= Rails.root.join("storage") %>
+
+backblaze:
+  service: S3
+  access_key_id: <%= ENV['B2_KEY'] %>
+  secret_access_key: <%= ENV['B2_TOKEN'] %>
+  region: us-west-000
+  bucket: <%= ENV['B2_NAME'] %>
+  endpoint: <%= ENV['B2_ENDPT'] %>

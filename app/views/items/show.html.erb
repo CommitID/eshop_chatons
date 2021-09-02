@@ -1,0 +1,27 @@
+<div class='grid-container margin-top spacer'>
+  <div class='grid-x grid-margin-x'>
+    <div class='cell medium-4'>
+      <% if @item.picture.attached? %>
+      <%= image_tag @item.picture %>
+      <% else %>
+      <img src="https://live.staticflickr.com/469/19471741213_eece5bb9bd_b.jpg">
+      <% end %>
+    </div>
+
+    <div class='cell auto'>
+    <p class='h1'><%= @item.title %></p>
+
+    <p><%= @item.price %>&nbsp;€</p>
+    
+    <p>
+      <strong>Description:</strong>
+      <%= @item.description %>
+    </p>
+    
+    <p>
+      <%= button_to "Ajouter au panier", cart_items_path(item_id: @item.id), :method => :post, :class => "button" %>
+    </p>
+    
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<%= form_with(model: item, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label 'titre', :class => 'mandatory' %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'description' %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'prix', :class => 'mandatory' %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="field">
+    <%= form.label 'Photo…', :class => 'button hollow', :for => 'chaton_pic' %>
+    <%= form.file_field :picture, :class => 'show-for-sr', :id => 'chaton_pic' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Envoyer', :class => 'button' %>
+  </div>
+
+<% end %>

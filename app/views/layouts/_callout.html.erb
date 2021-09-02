@@ -1,0 +1,19 @@
+<% unless notice.nil? %>
+<div class='callout success large' data-closable>
+  <span id="notice"><%= notice %></span>
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+
+<% unless alert.nil? %>
+<div class='callout alert large' data-closable>
+  <span id="alert"><%= alert %></span>
+  <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button> <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
