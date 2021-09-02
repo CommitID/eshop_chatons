@@ -14,6 +14,22 @@ class User < ApplicationRecord
     Cart.create(user_id: id)
   end
 
+  def total_orders
+    sum = 0
+    order.each do |_i|
+      sum += 1
+    end
+    sum
+  end
+
+  def orderless?
+    total_orders == 0
+  end
+
+  def ordered
+    order.order('updated_at').reverse
+  end
+
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
   end

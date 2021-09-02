@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /orders or /orders.json
   def index
@@ -30,7 +31,7 @@ class OrdersController < ApplicationController
     if @order.save
       flash[:notice] = 'Bravo'
       @cart.trasher
-      redirect_to root_path
+      redirect_to order_path(@order)
     else
       flash[:alert] = 'Pas bravo'
       redirect_to @cart
