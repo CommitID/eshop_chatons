@@ -4,14 +4,16 @@
     <ul class='dropdown menu' data-dropdown-menu>
       <li class='menu-text'>PssPssPss</li>
       <li><%= link_to 'Accueil', root_path %></li>
-      <% if user_signed_in? %>
-      <li><%= link_to 'Déconnexion', destroy_user_session_path, :method => :delete %></li>
-      <% else %>
       <li>
         <a href='#'>Compte</a>
-          <ul class='menu vertical'>
-        <li><%= link_to 'Connexion', new_user_session_path %></li>
-            <li><%= link_to 'Crée un compte', new_user_registration_path %></li>
+        <ul class='menu vertical'>
+          <% if user_signed_in? %>
+          <li><%= link_to 'Commandes', orders_path %></li>
+          <li><%= link_to 'Profil', user_path(current_user) %></li>
+          <li><%= link_to 'Déconnexion', destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li><%= link_to 'Connexion', new_user_session_path %></li>
+          <li><%= link_to 'Crée un compte', new_user_registration_path %></li>
           </ul>
       </li>
     <% end %>
