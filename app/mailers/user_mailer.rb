@@ -13,9 +13,12 @@ class UserMailer < ApplicationMailer
     @user = user
     @order = order
 
-    # for @order.order_items.each do |oi|
-    #  oi.picture
-    # end
+    @order.order_items.each do |oi|
+      attachments[oi.item.picture.blob.filename.to_s] = {
+        mime_type: oi.item.picture.blob.content_type,
+        content: oi.item.picture.blob.download
+      }
+    end
 
     @url = 'http://psspsspss.herokuapp.com'
 
