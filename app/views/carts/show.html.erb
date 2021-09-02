@@ -1,41 +1,39 @@
-<div class="grid-container">
-  <h1>Panier</h1>
-  <% unless @cart.itemless? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Produit</th>
-        <th>Prix</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-      <% @cart.cart_items.each do |ci| %>
-        <td>
-          <%= link_to ci.item do %>
-          <%= ci.item.title %>
-          <% end %>
-        </td>
-        <td>
-          <%= ci.item.price %>&nbsp;€
-          <small><%= link_to 'Supprimer', cart_item_path(ci), :method => :delete %></small>
-        </td>
-      </tr>
-      <% end %>
-      <tr>
-        <td>Total</td>
-        <td><%= @cart.total_price %>&nbsp;€</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <div class='button-group'>
-    <%= button_to 'Passer la commande', orders_path, :method => :post, :class => 'button' %>
-    <%= link_to 'Vider le panier', cart_path, :method => :delete, :class => 'button clear alert' %>
-  </div>
-<% else %>
-  <div class='callout large primary'>
-    Votre panier est vide&nbsp;!
-  </div>
-<% end %>
+<h1>Panier</h1>
+<% unless @cart.itemless? %>
+<table>
+  <thead>
+    <tr>
+      <th>Produit</th>
+      <th>Prix</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <% @cart.cart_items.each do |ci| %>
+      <td>
+        <%= link_to ci.item do %>
+        <%= ci.item.title %>
+        <% end %>
+      </td>
+      <td>
+        <%= ci.item.price %>&nbsp;€
+        <small><%= link_to 'Supprimer', cart_item_path(ci), :method => :delete %></small>
+      </td>
+    </tr>
+    <% end %>
+    <tr>
+      <td>Total</td>
+      <td><%= @cart.total_price %>&nbsp;€</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class='button-group'>
+  <%= button_to 'Passer la commande', orders_path, :method => :post, :class => 'button' %>
+  <%= link_to 'Vider le panier', cart_path, :method => :delete, :class => 'button clear alert' %>
 </div>
+<% else %>
+<div class='callout large primary'>
+  Votre panier est vide&nbsp;!
+</div>
+<% end %>
