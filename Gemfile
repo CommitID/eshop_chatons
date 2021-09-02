@@ -59,6 +59,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'faker'
+  gem 'letter_opener'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'table_print'
