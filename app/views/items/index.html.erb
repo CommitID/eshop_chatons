@@ -1,8 +1,6 @@
-<% if !user_signed_in? %>
 <%= render 'items/brief' %>
-<% end %>
 
-<h1>Items</h1>
+<h1>Dernières photos félines</h1>
 <div class="grid-x grid-margin-x small-up-2 medium-up-3">
   <% @items.order('created_at').reverse.each do |item| %>
     <div class="cell">

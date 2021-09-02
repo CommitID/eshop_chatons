@@ -1,5 +1,11 @@
 <div class="callout large primary">
-  <h5>Bienvenue sur Psspsspss</h5>
+<% if !user_signed_in? %>
+  <p class='h5'>Bienvenue sur Psspsspss</p>
   <p>Le leader de la vente de photo de chatons sur le marché des photos de chatons</p>
   <p>Le principe est simple, choisissez une photo de chaton, remplissez votre panier de photos, et on s’occupe de vous envoyer les fichiers&nbsp;!</p>
+<% else %>
+  <p class='h5'>Salut <%= current_user.first_name unless current_user.first_name.empty? %>!</p>
+  <p>De retour sur Psspsspss&nbsp;? Ça tombe bien, on a de nouvelles photos en stock&nbsp;!</p>
+<% end %>
 </div>
+
